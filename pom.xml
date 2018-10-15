@@ -6,12 +6,19 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-        <!-- 	pass what platform to run, default is mac, can pass linux-->
+		<!-- pass what platform to run, default is mac, can pass linux -->
 		<platform>mac</platform>
 
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
