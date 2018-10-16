@@ -16,7 +16,15 @@ For run with chrome browser:
 
 ```mvn clean package -DbrowserType=chrome```
 
+**Report of Test Run**
 
+After the test run, the test reports are under ```target/surefire-reports/emailable-report.html``` or ```target/surefire-reports/index.html```
+
+**The test execution explanation**
+
+The above maven run with a browserType parameter that is passed to pom.xml of the test project as a property. I use maven-surefire-plugin for testng integration. maven-surefire-plugin use this browserType param to invoke either testng-firefox.xml or testng-chrome.xml test config file which has the test class run config. The browserType parm also is passed to the test code for select the correct driver file(chromdriver or geckodriver). 
+
+I also use a data provider with multiple test data set for the test method. That can test multiple test cases with same test code.
 
 **Test Cases:**
 
