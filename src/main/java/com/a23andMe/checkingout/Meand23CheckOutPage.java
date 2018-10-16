@@ -19,7 +19,7 @@ public class Meand23CheckOutPage {
 	
 	public Meand23CheckOutPage(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 10);
+		this.wait = new WebDriverWait(driver, 25);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -167,5 +167,6 @@ public class Meand23CheckOutPage {
 	
 	public void clickSubmitOrderButton() {
 		submitOrderButton.click();
+		wait.until(ExpectedConditions.elementToBeClickable(editPaymentButton));
 	}
 }
