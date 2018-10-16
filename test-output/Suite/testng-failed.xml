@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="methods">
+  <parameter name="browser" value="chrome"/>
+  <test name="Chrome Test Unix(failed)" parallel="methods">
+    <classes>
+      <class name="com.a23andMe.checkingout.Test23andMeCheckOut">
+        <methods>
+          <include name="checkOut" invocation-numbers="0"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.a23andMe.checkingout.Test23andMeCheckOut -->
+    </classes>
+  </test> <!-- Chrome Test Unix(failed) -->
+</suite> <!-- Failed suite [Suite] -->

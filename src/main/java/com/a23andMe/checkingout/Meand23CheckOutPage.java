@@ -8,17 +8,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * checkout page model
+ * @author Yanyi
+ *
+ */
 public class Meand23CheckOutPage {
-	WebDriver driver;
-	WebDriverWait wait;
+	private WebDriver driver;
+	private WebDriverWait wait;
 	
 	public Meand23CheckOutPage(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 20);
+		this.wait = new WebDriverWait(driver, 10);
 		PageFactory.initElements(driver, this);
 	}
 	
-	Select sel;
+	private Select sel;
 	
 	@FindBy(id="js-shipping-firstname")
 	private WebElement firstNameElem;
@@ -63,7 +68,11 @@ public class Meand23CheckOutPage {
 	private WebElement continueToOrderReviewButton;
 	
 	@FindBy(xpath="//input[@type='checkbox']")
-	private WebElement acceptTermBox;
+	private WebElement acceptTermBoxFirefox;
+	
+//	@FindBy(xpath="//input[@type='checkbox' and @aria-label='I accept the Terms of Service']")
+	@FindBy(css="div.spc div.spc-container div.spc-outer:nth-child(9) div.spc-wrap.spc-summary form.spc-summary-accept.mod-fade-in div.spc-form-content-wrap- div.spc-tos-wrap div.spc-checkbox-outer div.spc-checkbox-wrap:nth-child(2) > label.spc-checkbox")
+	private WebElement acceptTermBoxChrome;
 	
 	@FindBy(xpath="//button[@class='spc-summary-accept-button spc-next-button mod-ok ']")
 	private WebElement submitOrderButton;
@@ -71,7 +80,6 @@ public class Meand23CheckOutPage {
 	@FindBy(xpath="//button[contains(text(),'edit payment')]")
 	private WebElement editPaymentButton;
 	
-	//div[@class='spc-input mod-error']
 	@FindBy(xpath="//div[@class='spc-input mod-error']//span")
 	private WebElement errorMessage;
 	
@@ -147,12 +155,17 @@ public class Meand23CheckOutPage {
 		continueToOrderReviewButton.click();
 	}
 	
-	public void checkAcceptTermBox() {
-		acceptTermBox.click();
+	public void checkAcceptTermBox(String browserType) {
+		wait.until(ExpectedConditions.elementToBeClickable(acceptTermBoxChrome));
+
+		if (browserType.equalsIgnoreCase("firefox")) {
+			acceptTermBoxFirefox.click();
+		} else if (browserType.equalsIgnoreCase("chrome")) {
+			acceptTermBoxChrome.click();
+		}
 	}
 	
 	public void clickSubmitOrderButton() {
 		submitOrderButton.click();
 	}
-	
 }

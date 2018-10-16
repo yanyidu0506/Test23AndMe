@@ -6,9 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<!-- pass what platform to run, default is mac, can pass linux -->
-		<platform>mac</platform>
-
+		<!-- pass what browserType to run, default is firefox, can pass chrome -->
+		<browserType>firefox</browserType>
 	</properties>
 
 	<dependencies>
@@ -45,7 +44,11 @@
 			<version>6.8</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>
@@ -80,7 +83,7 @@
 				<version>2.22.0</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng-${platform}.xml</suiteXmlFile>
+						<suiteXmlFile>testng-${browserType}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
