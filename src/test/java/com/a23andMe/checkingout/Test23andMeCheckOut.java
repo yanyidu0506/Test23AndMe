@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
  *
  */
 public class Test23andMeCheckOut {
-        private static final String WEBDRIVER_GECKO_DRIVER = "webdriver.gecko.driver";
+       private static final String WEBDRIVER_GECKO_DRIVER = "webdriver.gecko.driver";
 	private static final String CART_URL ="https://store.23andme.com/";
 	private static final String INVALID_FIRST_NAME_EXPECTED_MSG = "Invalid first name";
 	private static final String INVALID_LAST_NAME_EXPECTED_MSG = "Invalid last name";
